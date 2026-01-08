@@ -1,31 +1,61 @@
-<!DOCTYPE html> <!-- HTML5 doctype declaration -->
-<html> <!-- using lang is optional here -->
-<head> <!-- Metadata about the document -->
-    <meta charset="UTF-8"> <!-- Character encoding for the document -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design settings -->
-    <title>To Do List Table</title> <!-- Title of the page -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> <!-- Link to an external CSS framework -->
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to an external CSS file -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo List Website - Yama</title>
+    <script>
+        /* Inline Tailwind CDN config: placed before the CDN script so the CDN picks it up */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1677ff',
+                        secondary: '#1976d2',
+                        danger: '#ff2e4a',
+                        brand: '#0b1220'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui']
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+<body>
+    <div class="min-h-screen flex items-center justify-center bg-white font-sans">
+        <div class="w-full max-w-md px-6 py-8">
+            <h1 class="text-center text-2xl font-semibold mb-4">Todo List Website - Harits</h1>
 
-<body> <!-- Something that renders to the page -->
-    
-    <!--Header Content-->
-    <header>
+            <div class="flex gap-3 mb-3">
+                <input id="todo-input" type="text" placeholder="Enter a new to-do item" class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-base">
+                <input id="date-input" type="date" class="w-36 border border-gray-300 rounded-md px-3 py-2 text-base">
+            </div>
 
-    </header>
+            <div class="flex items-center gap-3 mb-4">
+                <button id="add-button" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md">Add Todo</button>
+                <button id="clear-button" class="bg-danger hover:bg-danger/90 text-white px-4 py-2 rounded-md">Clear All Todos</button>
+                <button id="filter-button" class="ml-auto bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-md">Filter Todos</button>
+            </div>
 
-    <!--Main Content-->
-    <main>
+            <h2 class="text-lg font-bold mb-2">List of Todos</h2>
+            <table id="todo-table" class="w-full text-left">
+                <thead>
+                    <tr>
+                        <th class="pb-2">Todo</th>
+                        <th class="pb-2">Date</th>
+                    </tr>
+                </thead>
+                <tbody id="todo-tbody" class="divide-y divide-gray-200"></tbody>
+            </table>
 
-    </main>
+            <p class="text-center text-sm mt-4">© 2026 Harits's Todo List</p>
+        </div>
+    </div>
 
-    <!--Footer Content-->
-    <footer>
-
-    </footer>
-
-    <!-- JavaScript Files -->
-    <script src="js/script.js"></script> <!-- Link to an external JavaScript file -->
+    <script src="js/script.js"></script>
 </body>
 </html>
