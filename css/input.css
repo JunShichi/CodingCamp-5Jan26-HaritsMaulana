@@ -1,9 +1,2 @@
-/* stylelint-disable-next-line at-rule-no-unknown */
-@tailwind base;
-/* stylelint-disable-next-line at-rule-no-unknown */
-@tailwind components;
-/* stylelint-disable-next-line at-rule-no-unknown */
-@tailwind utilities;
-
 /* optional local overrides */
 .font-sans { font-family: Inter, ui-sans-serif, system-ui; }
