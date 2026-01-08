@@ -1,36 +1,43 @@
-Todo List Project — Tailwind Build Instructions
+Todo List Website — Deskripsi Proyek
 
-This project currently uses the Tailwind CDN for development. To build a production CSS file using Tailwind CLI and PostCSS:
+Ini adalah proyek sederhana: sebuah aplikasi Todo (Daftar Tugas) berbasis web yang saya buat untuk latihan.
 
-1. Install dependencies (requires Node.js >=16):
+Fitur utama:
+- Menambah todo dengan tanggal.
+- Menyimpan data di `localStorage` sehingga todo tetap ada setelah refresh.
+- Menampilkan daftar sebagai tabel dengan kolom "Todo" dan "Date".
+- Tombol untuk menambah, membersihkan semua todo, dan memfilter berdasarkan kata kunci.
+
+Struktur penting proyek:
+- `index.html` — halaman utama dan markup (menggunakan utilitas Tailwind).
+- `css/input.css` — sumber Tailwind (`@tailwind base; @tailwind components; @tailwind utilities;`).
+- `css/output.css` — file CSS terkompilasi (dihasilkan oleh Tailwind CLI).
+- `css/styles.css` — file override lokal (optional).
+- `js/script.js` — logika aplikasi: render tabel, `addTodo`, `removeAllTodo`, `filterTodo`, dan persistensi `localStorage`.
+- `tailwind.config.js` — konfigurasi Tailwind (warna kustom, content paths).
+- `package.json`, `postcss.config.js` — konfigurasi build Tailwind/PostCSS.
+
+Cara pakai (untuk pengguna):
+1. Buka `index.html` di browser.
+2. Ketik tugas di kolom pertama, pilih tanggal, lalu tekan "Add Todo".
+3. Gunakan "Clear All Todos" untuk menghapus semua (akan meminta konfirmasi).
+4. Ketik kata kunci di input dan tekan "Filter Todos" untuk melihat hasil filter.
+
+Catatan pengembangan:
+- Proyek sudah menyertakan skrip build Tailwind. Jika Anda ingin membangun CSS sendiri, jalankan:
 
 ```bash
 npm install
-```
-
-2. Build the CSS once:
-
-```bash
 npm run build:css
 ```
 
-The compiled CSS will be written to `css/output.css`. To use the built file, change the link in `index.html`:
+Setelah build, `css/output.css` akan dibuat; `index.html` sekarang sudah diatur agar menggunakan `css/output.css`.
 
-```html
-<link rel="stylesheet" href="css/output.css">
-```
+- Jika Anda melihat peringatan lint seperti "Unknown rule at @tailwind", itu berasal dari stylelint/editor. Jangan hapus `css/input.css` — file ini diperlukan untuk proses build Tailwind. Jika perlu, tambahkan konfigurasi stylelint untuk mengabaikan at-rules Tailwind.
 
-For development with live rebuilds:
+Jika mau, saya bisa bantu:
+- Menyederhanakan README lebih jauh.
+- Menambahkan skrip deploy atau contoh file `.env`.
+- Membuat tombol UI untuk "Clear Storage" yang membersihkan `localStorage`.
 
-```bash
-npm run watch:css
-```
-
-Notes:
-- `tailwind.config.js` is included and configured to scan `index.html` and `js/**/*.js` for used classes.
-- You can customize colors in `tailwind.config.js` under `theme.extend.colors`.
-
-Quick usage:
-
-1. Switch `index.html` stylesheet to `css/output.css` after building.
-2. Remove or keep `css/styles.css` for overrides.
+Terima kasih — beri tahu jika Anda ingin saya commit perubahan ini ke repo.
