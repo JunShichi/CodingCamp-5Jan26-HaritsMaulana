@@ -27,33 +27,39 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="min-h-screen flex items-center justify-center bg-white font-sans">
-        <div class="w-full max-w-md px-6 py-8">
-            <h1 class="text-center text-2xl font-semibold mb-4">Todo List Website - Harits</h1>
+    <div class="min-h-screen flex items-center justify-center font-sans app-shell">
+        <div class="w-full max-w-4xl px-8 py-8 card-panel">
+            <h1 class="text-center text-3xl font-semibold mb-6 text-heading">Todo List</h1>
 
-            <div class="flex gap-3 mb-3">
-                <input id="todo-input" type="text" placeholder="Enter a new to-do item" class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-base">
-                <input id="date-input" type="date" class="w-36 border border-gray-300 rounded-md px-3 py-2 text-base">
+            <div class="flex flex-col gap-3 mb-4 md:flex-row">
+                <input id="todo-input" type="text" placeholder="Add a todo (With &quot;Add&quot; Button) or Filter a todo (With &quot;Filter&quot; Button)" class="flex-1 input-dark">
+                <input id="date-input" type="date" class="w-48 input-dark">
+                <button id="add-button" class="btn-add" aria-label="Add todo">
+                    <span class="hidden md:inline">Add</span>
+                    <span class="md:hidden">+</span>
+                </button>
             </div>
 
             <div class="flex items-center gap-3 mb-4">
-                <button id="add-button" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md">Add Todo</button>
-                <button id="clear-button" class="bg-danger hover:bg-danger/90 text-white px-4 py-2 rounded-md">Clear All Todos</button>
-                <button id="filter-button" class="ml-auto bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-md">Filter Todos</button>
+                <button id="filter-button" class="btn-filter">Filter</button>
+                <div class="flex-1"></div>
+                <button id="clear-button" class="btn-clear">Delete All</button>
             </div>
 
-            <h2 class="text-lg font-bold mb-2">List of Todos</h2>
-            <table id="todo-table" class="w-full text-left">
-                <thead>
-                    <tr>
-                        <th class="pb-2">Todo</th>
-                        <th class="pb-2">Date</th>
-                    </tr>
-                </thead>
-                <tbody id="todo-tbody" class="divide-y divide-gray-200"></tbody>
-            </table>
+            <div class="table-wrapper">
+                <table id="todo-table" class="w-full text-left">
+                    <thead>
+                        <tr>
+                            <th class="pb-2 text-xs uppercase tracking-wide">Task</th>
+                            <th class="pb-2 text-xs uppercase tracking-wide">Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="todo-tbody"></tbody>
+                </table>
+                <div id="empty-state" class="empty-state">No task found</div>
+            </div>
 
-            <p class="text-center text-sm mt-4">© 2026 Harits's Todo List</p>
+            <p class="text-center text-xs mt-4 text-subtle">© 2026 Harits's Todo List</p>
         </div>
     </div>
 
