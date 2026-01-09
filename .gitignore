@@ -26,8 +26,9 @@ Thumbs.db
 /build
 /.cache
 
-# Tailwind/PostCSS output (ignore if you want to commit compiled CSS)
-css/output.css
+# Tailwind/PostCSS output
+# Note: We commit output.css so GitHub Pages has styles without a build step
+# css/output.css
 
 # Temporary files
 *.log
