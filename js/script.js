@@ -1,5 +1,5 @@
 // Persistent todo list using localStorage (no dummy storage required)
-const STORAGE_KEY = 'yama_todo_list_v1';
+const STORAGE_KEY = 'Harits_todo_list_v1';
 
 // Load from localStorage or fall back to sample items
 let todo = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || [];
